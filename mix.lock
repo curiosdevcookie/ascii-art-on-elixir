@@ -1,0 +1,4 @@
+%{
+  "font_metrics": {:hex, :font_metrics, "0.5.1", "10ce0b8b1bf092a2d3d307e05a7c433787ae8ca7cd1f3cf959995a628809a994", [:mix], [{:nimble_options, "~> 0.3", [hex: :nimble_options, repo: "hexpm", optional: false]}], "hexpm", "192e4288772839ae4dadccb0f5b1d5c89b73a0c3961ccea14b6181fdcd535e54"},
+  "nimble_options": {:hex, :nimble_options, "0.5.2", "42703307b924880f8c08d97719da7472673391905f528259915782bb346e0a1b", [:mix], [], "hexpm", "4da7f904b915fd71db549bcdc25f8d56f378ef7ae07dc1d372cbe72ba950dce0"},
+}
