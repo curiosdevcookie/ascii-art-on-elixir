@@ -1,23 +1,45 @@
-# Elixir goes ASCII Art ¯\\_(ツ)_/¯
+# Elixir goes ASCII Art ¯\_(ツ)_/¯
 
-This is a repo to play around with ASCII and elixir.
+## We💜Elixir, right?
 
 The aim is to create a heart-shaped pattern in your terminal that is made up of characters from the given string _Elixir_.
 
-![Alt text](images/ASCII_heart_elixir.png)
+The following code achieves that by using a combination of mathematical equations and string manipulation techniques.
 
-## How to run
+You'll find a step-by-step breakdown after the code. Let's go!
 
-1. Clone the repo.
-2. In your terminal, run:
+```elixir
+defmodule Love do
+  @love "Elixir "
 
-```zsh
-elixir we_love.exs
+  def character_at(@love, x, y) do
+    index = rem(x - y, String.length(@love))
+    char = String.slice(@love, index..index)
+
+    if (:math.pow(x * 0.05, 2) + :math.pow(y * 0.1, 2) - 1) ** 3 -
+         :math.pow(x * 0.05, 2) * :math.pow(y * 0.1, 3) <= 0 do
+      char
+    else
+      " "
+    end
+  end
+
+  def heart() do
+    -13..13
+    |> Enum.map(fn y ->
+      -30..30
+      |> Enum.map(fn x -> Love.character_at(@love, x, y) end)
+      |> Enum.join("")
+    end)
+    |> Enum.reverse()
+    |> Enum.join("\n")
+  end
+end
+
+IO.puts(Love.heart())
 ```
 
-3. Enjoy playing around with it 😃
-
-## Breakdown of the code
+## Let's break it down
 
 The code is split into 5 parts:
 
@@ -33,7 +55,7 @@ The code is split into 5 parts:
 
 * The next section of the code checks whether the given "x" and "y" coordinates lie inside the ellipse equation. If so, the function returns the character retrieved from the "love" string. Else, it returns just a blank space.
 
-4. The function `heart` creates our heart shape. The function takes no arguments, and:
+1. The function `heart` creates our heart shape. The function takes no arguments, and:
 
 * maps over a range of y values, and for each y value, again maps over a range of x values in order to create a row of characters for that specific y value.
 
@@ -43,4 +65,8 @@ The code is split into 5 parts:
 
 * joins all the rows with a newline character to form the complete heart shape.
 
-5. The last section of the code calls the `heart` function and prints the result to the terminal.
+1. The last section of the code calls the `heart` function and prints the result to the terminal.
+
+<!-- livebook:{"break_markdown":true} -->
+
+![](elixir_ascii_heart.png)
