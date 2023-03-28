@@ -4,6 +4,8 @@ This is a repo to play around with ASCII and elixir.
 
 The aim is to create a heart-shaped pattern in your terminal that is made up of characters from the given string _Elixir_.
 
+![Alt text](images/ASCII_heart_elixir.png)
+
 ## How to run
 
 1. Clone the repo.
