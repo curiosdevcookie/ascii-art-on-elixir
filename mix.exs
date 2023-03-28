@@ -1,15 +1,10 @@
-defmodule Heart.MixProject do
+defmodule Ascii.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :heart,
-      version: "1.0.0",
-      deps: deps()
+      app: :ascii,
+      version: "1.0.0"
     ]
-  end
-
-  def deps() do
-    [{:font_metrics, "~> 0.5"}]
   end
 end
