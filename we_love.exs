@@ -5,7 +5,7 @@
 defmodule WeLove do
   @love "Elixir "
 
-  def character_at(@love, x, y) do
+  def character_at(x, y) do
     index = rem(x - y, String.length(@love))
     char = String.slice(@love, index..index)
 
@@ -21,7 +21,7 @@ defmodule WeLove do
     -50..50
     |> Enum.map(fn y ->
       -30..29
-      |> Enum.map(fn x -> WeLove.character_at(@love, x, y) end)
+      |> Enum.map(fn x -> WeLove.character_at(x, y) end)
       |> Enum.join("")
     end)
     |> Enum.reverse()

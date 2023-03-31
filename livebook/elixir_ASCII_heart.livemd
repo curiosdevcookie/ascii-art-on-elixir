@@ -12,7 +12,7 @@ You'll find a step-by-step breakdown after the code. Let's go!
 defmodule Love do
   @love "Elixir "
 
-  def character_at(@love, x, y) do
+  def character_at(x, y) do
     index = rem(x - y, String.length(@love))
     char = String.slice(@love, index..index)
 
@@ -28,7 +28,7 @@ defmodule Love do
     -13..13
     |> Enum.map(fn y ->
       -30..30
-      |> Enum.map(fn x -> Love.character_at(@love, x, y) end)
+      |> Enum.map(fn x -> Love.character_at(x, y) end)
       |> Enum.join("")
     end)
     |> Enum.reverse()
