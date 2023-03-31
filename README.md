@@ -21,9 +21,9 @@ elixir we_love.exs
 
 The code is split into 5 parts:
 
-1. The definition of the module `WeLove` contains the global variable `love`, and the functions `character_at` and `heart`.
+1. The definition of the module `WeLove` contains the module attribute `love`, and the functions `character_at` and `heart`.
 
-2. The global variable `love` stores the value "Elixir ". Of course, you can change the value to whatever you want. However, paying homage to our beloved Elixir lang seemed kinda fitting to start with 🙃.
+2. The module attribute `love` stores the value "Elixir ". Of course, you can change the value to whatever you want. However, paying homage to our beloved Elixir lang seemed kinda fitting to start with 🙃.
 
 3. The function `character_at` is a helper function that takes three arguments: "@love" is expected to be a string, while "x" and "y" are expected to be integers.
 
