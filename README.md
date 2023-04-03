@@ -2,11 +2,13 @@
 
 This is a repo to play around with ASCII and elixir.
 
-The aim is to create a heart-shaped pattern in your terminal that is made up of characters from the given string _Elixir_.
+The aim is to create different patterns in your terminal that are made up of characters from a given string, in our case _Elixir_.
+
+## The heart shape
 
 ![Alt text](images/ASCII_heart_elixir.png)
 
-## How to run
+### How to run
 
 1. Clone the repo.
 2. In your terminal, run:
@@ -19,21 +21,22 @@ elixir we_love.exs
 
 ## Breakdown of the code
 
-The code is split into 5 parts:
+ The definition of the module `WeLove` contains the module attribute `love`, and the functions `character_at`, `math_power`, and `patch_together`.
 
-1. The definition of the module `WeLove` contains the module attribute `love`, and the functions `character_at` and `heart`.
+ The code is split into 5 parts:
 
-2. The module attribute `love` stores the value "Elixir ". Of course, you can change the value to whatever you want. However, paying homage to our beloved Elixir lang seemed kinda fitting to start with 🙃.
+1. The module attribute `love` stores the string "Elixir ", chopped into its chars. (… of course, you can change the value to whatever you want, however, paying homage to our beloved Elixir lang seemed kinda fitting to start with 🙃)
 
-3. The function `character_at` is a helper function that takes three arguments: "@love" is expected to be a string, while "x" and "y" are expected to be integers.
+2. The function `character_at` calculates the index of the character in the @love string using the modulo operator (which returns the remainder of the division of its first argument by its second argument) and the length of the string.
 
-* The first line of the function calculates an index value based on the difference between "x" and "y", using the modulo "rem" function (which returns the remainder of the division of its first argument by its second argument) and the length of the "love" string.
+3. The function `math_power` takes two arguments, x and y, and returns a boolean, indicating whether the point (x, y) is inside the heart shape or not.
 
-* The second line of the function retrieves a character from the "love" string using the index value calculated in the previous step.
+* This is the basic mathematical formula for our heart: ((x)² + (y)^2 - 1)³ - (x)² * (y)³ <= 0
+* The ((x)² + (y)² - 1)³ part describes a circle, the (x)² * (y)³ part descibes a cube.
+* Subtract the (x)² * (y)³ part from the ((x)² + (y)² - 1)³ part and less-than-or-equal it to 0 to get the shape of a heart.
+* To play around with this math part, visit: <https://www.wolframalpha.com/input?i=++%28%28x+*+0.05%29%5E2+%2B+%28y+*+0.1%29%5E2+-+1%29%5E3+-+%28x+*+0.05%29%5E2+*+%28y+*+0.1%29%5E3+%3C%3D+0>
 
-* The next section of the code checks whether the given "x" and "y" coordinates lie inside the ellipse equation. If so, the function returns the character retrieved from the "love" string. Else, it returns just a blank space.
-
-4. The function `heart` creates our heart shape. The function takes no arguments, and:
+4. The function `patch_together` is the main function that creates the heart shape. It does so by:
 
 * maps over a range of y values, and for each y value, again maps over a range of x values in order to create a row of characters for that specific y value.
 
@@ -43,4 +46,4 @@ The code is split into 5 parts:
 
 * joins all the rows with a newline character to form the complete heart shape.
 
-5. The last section of the code calls the `heart` function and prints the result to the terminal.
+5. The last section of the code calls the `patch_together` function and prints the result to the terminal.
